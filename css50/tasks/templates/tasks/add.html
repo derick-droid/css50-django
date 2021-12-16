@@ -13,8 +13,9 @@
     <h1>
         add activity/s
     </h1>
-    <form action="">
-        <input type="text" name="task">
+    <form action="{% url 'tasks:tasks' %}" method="post">
+        {% csrf_token %}
+        {{ forms }}
         <input type="submit">
     </form>
     <p>
