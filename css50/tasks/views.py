@@ -18,13 +18,13 @@ def tasks(request):
 # adding more activities 
 def add(request):
     if request.method == "POST":
-        form = NewTask(request.POST)
-        if form.is_valid():
-            task = form.cleaned_data["tasks1"]
-            tasks.append(task)
+        forms = NewTask(request.POST)
+        if forms.is_valid():
+            taskz = forms.cleaned_data["tasks1"]
+            tasks.append(taskz)
         else:
             return render(request, "tasks/add.html", {
-                "form": form
+                "form": forms
             })
             
     return render(request,"tasks/add.html", {
